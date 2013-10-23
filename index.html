@@ -428,6 +428,9 @@
                             <br>
                             A **conformance relation** MUST be selected in order to determine under
                             which conditions an implementation is considered conform to its requirements.
+
+                            <br>
+                            <i class="icon-info-sign"></i> Combining 2. and 3. leads to **On-The-Fly Testing**.
                         </script>
                     </section>
                     <section data-markdown>
@@ -711,13 +714,24 @@
                             <i class="icon-info-sign"></i> We introduce a special action &delta; to denote <strong>quiescence</strong>.
                         </p>
                     </section>
-                    <section data-markdown>
-                        <script type="text/template">
-                            ## Example
+                    <section>
+                        <h2>Example</h2>
 
+                        <br>
+                        <p class="float-left">
+                            <img src="images/iolts.png" />
+                        </p>
+                        <p class="float-right">
                             <br>
-                            ![](images/iolts.png)
-                        </script>
+                            <br>
+                            <br>
+                            $$
+                            \begin{align}
+                            Act_{I} = & \lbrace COIN?, COFFEE?, TEA? \rbrace \\
+                            Act_{U} = & \lbrace COFFEE!, TEA! \rbrace
+                            \end{align}
+                            $$
+                        </p>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
@@ -747,16 +761,233 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ## ioco
+
+                            <br>
+                            Common implementation relation for IOLTS:
+
+                            $$ i\ ioco\ s = \forall\ \sigma \in straces(s) : out(i\ after\ \sigma) \subseteq out (s\ after\ \sigma) $$
+
+                            <br>
+                            <p class="left">
+                                $$ i\ ioco\ s $$
+                                <ul class="force-inline">
+                                    <li>
+                                        if $$ i $$ produces output $$ x $$ after trace $$ \sigma $$,
+                                        then $$ s $$ can produce $$ x $$ after trace $$ \sigma $$
+                                    </li>
+                                    <li>
+                                        if $$ i $$ cannot produce any output after trace $$ \sigma $$,
+                                        then $$ s $$ cannot produce any output after trace $$ \sigma $$ (quiescence)
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                <br>
+                                <i class="icon-info-sign"></i> A few tools: TorX, TGV, Autolink, TestComposer.
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
                             ## Test Case
 
-                            ![](images/test_case_ioco.png)
+                            <div class="left float-left">
+                                <br>
+                                A **Test Case** is an IOLTS:
+                                <ul>
+                                    <br>
+                                    <li>modeling the observation of **quiescence**</li>
+                                    <li>being **tree-structured**</li>
+                                    <li>being **finite** and **deterministic**</li>
+                                    <li>having final states **pass** and **fail**</li>
+                                </ul>
+                            </div>
+                            <p class="float-right">
+                                ![](images/test_case_ioco.png)
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Formal Test Execution
+
+                            <br>
+                            **Formally executing** a test case means putting it in parallel
+                            with the implementation model, leading to a **verdict**.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## So... What?
+
+                            <br>
+                            <p class="fragment">
+                                Creating the **specification model** is complicated.
+                            </p>
+                            <br>
+                            <p class="fragment">
+                                But then, it is possible to do cool stuff!
+                            </p>
+                            <br>
+                            <p class="fragment">
+                                What about **automatically generating** it?
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Automated Generation Of Specification Models
+
+                            <br>
+
+                            * By leveraging the API documentation
+                            * By instrumenting the code (tracing)
+                            * By leveraging the logs
+                            * By monitoring the system
                         </script>
                     </section>
                 </section>
                 <section>
                     <section data-markdown>
                         <script type="text/template">
+                            ## Current Research
+
+                            <br>
+                            Based on a software, running in a<br>production environment, would it possible to:
+                            <br>
+                            <br>
+
+                            1. extract a **knowledge base**
+                            2. that can be formalized by a **model**
+                            3. that can be used to **generate tests** and/or **specifications**?
+                        </script>
+                    </section>
+                    <section>
+                        <h2>Context (1/2)</h2>
+
+                        <br>
+                        <p>
+                            Michelin relies on the <strong>C</strong>omputer <strong>I</strong>ntegrated <strong>M</strong>anufacturing
+                            <br>(CIM) approach to control the entire production:
+                        </p>
+
+                        <div class="float-left" style="width: 65%">
+                            <ul style="margin-top: 5%">
+                                <li>L4: Business Software</li>
+                                <li>L3: Virtual level as it is not that used (Factory Management)</li>
+                                <li><strong>L2: Supervision / Workshop Management</strong></li>
+                                <li>L1: Automata</li>
+                            </ul>
+                        </div>
+                        <div class="float-right" style="width: 60%">
+                            <img src="images/levels.png" />
+                        </div>
+
+                        <p>These levels can exchange data among them.</p>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Context (2/2)
+
+                            <br>
+                            Focus on **Level 2** applications but, then again,
+                            <br>there are a lot of differences between them, such as:
+
+                            * Programming Language
+                            * Framework
+                            * Design
+                            * Version
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Hypotheses
+
+                            <br>
+
+                            1. Applications deployed in production behave as expected
+                            2. Don't consider (existing) specifications
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## The Big Picture
+
+                            <br>
+                            ![](images/autofunk_1.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
                             ## Work In Progress
+
+                            <br>
+                            ![](images/autofunk_2.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## What Can We Do?
+
+                            <br>
+
+                            * Test Data can be **inferred** from recorded data
+                            * "Easy" record & replay
+                            * Generation of a **degraded model**
+                            * Generation of documentation and/or specification
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## **Auto**matic **Funk**tional Testing Tool
+
+                            <br>
+                            A **proxy** records incoming/outgoing data (traces).
+
+                            <br>
+                            An **Expert System** is used to generate models.
+
+                            <br>
+                            The tool communicates with an **explorer** to "feed" itself.
+
+                            <br>
+                            Based on the model, it is possible to generate test cases.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## **Auto**matic **Funk**tional Testing Tool
+
+                            <br>
+                            Written in Java, PHP, Node.JS, and JavaScript.
+
+                            <br>
+                            Distributed system thanks to RabbitMQ.
+
+                            <br>
+                            Service Oriented Architecture FTW!
+
+                            <br>
+                            <i class="icon-warning-sign"></i> This tool has been built for web applications.
+                            <br>Michelin will get its own internal tool.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Perspectives
+
+                            <br>
+
+                            * Formalizing the different generated models (WIP)
+                            * Proving the correctness of each model (WIP)
+                            * Test Data generation (WIP)
+                            * Adding more rules to the Expert System
+                            * Generating Test Cases
+                            * Improving generated code
+
+                            <br>
+                            <i class="icon-hand-right"></i> Adapting this work for Michelin needs.
                         </script>
                     </section>
                 </section>
@@ -764,6 +995,13 @@
                     <section data-markdown>
                         <script type="text/template">
                             ## Conclusion
+
+                            <br>
+                            Model-based Testing is the **next upcoming change**<br>in the industry, and it has already begun!
+
+                            <br>
+                            Michelin gives me a great opportunity to validate my experiments, and to develop a realistic
+                            tool coming from academia for the industry.
                         </script>
                     </section>
                 </section>
