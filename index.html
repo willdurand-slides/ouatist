@@ -160,7 +160,7 @@
                             <br>
                             <h4 class="left">Advantages</h4>
 
-                            * **Powerful method** for ﬁnding software errors
+                            * **Powerful method** for finding software errors
                             * Mathematical **proof** of absence of errors in implementations relative to speciﬁcations
                         </script>
                     </section>
@@ -501,23 +501,28 @@
                             ## Implementation Relations
 
                             <br>
-                            To define conformance between an implementation under test `imp` and a specification `Spec`,
-                            we use the notion of an **implementation relation**:
+                            <p class="force-inline">
+                                To define conformance between an implementation under test $$ imp $$ and a specification $$ Spec $$,
+                                we use the notion of an **implementation relation**:
+                            </p>
 
                             <br>
                             $$ imp \subseteq MODS \times SPECS $$
 
                             <br>
-                            with `SPECS` the set of specifications.
+                            <p class="force-inline">
+                                with $$ SPECS $$ the set of specifications.
+                            </p>
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
                             ## Conformance
 
-                            <br>
-                            An implementation `iut` **conforms to** a specification `Spec` if the existing
-                            model `I`<sub>`iut`</sub> of `iut` is **imp-related to** `Spec`.
+                            <p class="force-inline">
+                                An implementation $$ iut $$ **conforms to** a specification $$ Spec $$ if the existing
+                                model $$ I_{iut} $$ of $$ iut $$ is **imp-related to** $$ Spec $$.
+                            </p>
 
                             ![](images/conformance.png)
                         </script>
@@ -538,13 +543,15 @@
                         <script type="text/template">
                             ## Conformance Testing
 
-                            <br>
-                            **Conformance Testing** assesses conformance to an unknown implementation under
-                            test (`iut`) to its specification (`Spec`) by means of test experiments.
-
-                            <br>
-                            Experiments consist of **stimulating** `iut` in certain ways and **observing** its
-                            reactions. This process is called **test execution**.
+                            <p class="force-inline">
+                                <br>
+                                **Conformance Testing** assesses conformance to an unknown implementation under
+                                test ($$ iut $$) to its specification ($$ Spec $$)<br>by means of **test experiments**.
+                                <br>
+                                <br>
+                                Experiments consist of **stimulating** $$ iut $$ in certain ways and **observing** its
+                                reactions. This process is called **test execution**.
+                            </p>
                         </script>
                     </section>
                     <section data-markdown>
@@ -561,8 +568,10 @@
                             </ul>
 
                             <br>
-                            The `verdict` function assigns to each observation
-                            <br>a `pass` or `fail` verdict:
+                            <p class="force-inline">
+                                The $$ verdict $$ function assigns to each observation
+                                <br>a $$ pass $$ or $$ fail $$ verdict:
+                            </p>
 
                             <br>
                             $$ verdict: OBS \mapsto \lbrace Fail, Pass \rbrace $$
@@ -659,8 +668,10 @@
 
                             $$ s \in S $$
 
-                            <br>
-                            <i class="icon-info-sign"></i> The &rArr; relation is used to abstract from &tau; transitions.
+                            <p class="force-inline">
+                                <br>
+                                <i class="icon-info-sign"></i> The $$ \Longrightarrow $$ relation is used to abstract from $$ \tau $$ transitions.
+                            </p>
                         </script>
                     </section>
                     <section>
@@ -684,9 +695,9 @@
                             \end{align}
                             $$
                         </p>
-                        <p>
+                        <p class="force-inline">
                             <br>
-                            <i class="icon-info-sign"></i> &epsilon; is the empty word, part of <code>Act</code>, an Alphabet.
+                            <i class="icon-info-sign"></i> $$ \epsilon $$ is the empty word, part of the alphabet $$ Act $$.
                         </p>
                     </section>
                     <section>
@@ -842,9 +853,9 @@
                             <br>
 
                             * By leveraging the API documentation
-                            * By instrumenting the code (tracing)
+                            * By **instrumenting** the code (tracing)
                             * By leveraging the logs
-                            * By monitoring the system
+                            * By **monitoring** the system
                         </script>
                     </section>
                 </section>
