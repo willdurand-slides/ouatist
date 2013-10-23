@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>State Of The Art - William Durand</title>
+        <title>Software Testing - William Durand</title>
         <link rel="stylesheet" href="css/reveal-no-icons.min.css">
         <link rel="stylesheet" href="reveal.js/css/theme/serif.css" id="theme">
         <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
@@ -18,17 +18,754 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1></h1>
+                    <h1 class="title">Once Upon A Time In Software Testing</h1>
                     <em>William Durand - October 24, 2013</em>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## About Me
+
+                            <br>
+
+                            * PhD student at Michelin / LIMOS
+                            * Graduated from IUT and ISIMA
+                            * I <i class="icon-heart"></i> Open Source
+
+                            <img src="images/clermontech.png" class="clermontech-badge" />
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            <img src="images/michelin-logo.png" class="no-border" />
+
+                            I work at Michelin.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## PhD Topic
+
+                            <br>
+                            Automated **Test** Generation for applications and production machines in a
+                            **Model-based Testing** approach.
+                        </script>
+                    </section>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
-                        ## About Me
+                        ## Agenda
 
-                        * PhD student at Michelin / LIMOS
-                        * Graduated from IUT and ISIMA
-                        * I <i class="icon-heart"></i> Open Source
+                        <br>
+
+                        * Introduction
+                        * Verification Quickly
+                        * Testing 101
+                        * Model-based Testing
+                        * Conclusion
                     </script>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## So... Software Testing
+
+                            <p class="fragment">
+                                <br>
+                                **Software testing** is the process of **analyzing a software**
+                                <br>item **to detect the differences between existing and
+                                <br>required conditions** (that is, bugs) and to evaluate the
+                                <br>features of the software item.
+                            </p>
+
+                            <p class="fragment">
+                                <br>
+                                It is a **verification** and **validation** process.
+                            </p>
+
+                            <p class="fragment">
+                                <br>
+                                **Validation**&nbsp;&nbsp;&nbsp;&nbsp;&rarr; "Are we building the right software?"
+                                <br>
+                                <br>
+                                **Verification** &rarr; "Are we building the software right?"
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Why?
+
+                            <br>
+                            <ul>
+                                <li>To find **faults** (G. Myers, The Art of Software Testing)</li>
+                                <br>
+                                <li>To provide **confidence** of reliability, correctness,<br>and absence of particular faults</li>
+                            </ul>
+
+                            <br>
+                            <br>
+                            <i class="icon-warning-sign"></i> This does **not** mean that the software is completely
+                            free of defects. Rather, it must be good enough for its intended use.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## How?
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Industry
+
+                            **Unit** Testing, **Integration** Testing, **Functional** Testing, System Testing,
+                            Stress Testing, Performance Testing, Usability Testing, Acceptance Testing,
+                            Regression Testing, Beta Testing, &lt;Whatever You Want&gt; Testing
+
+                            <br><br>
+                            <p class="fragment left">
+                                <i class="icon-thumbs-up"></i> People now understand the need for testing things
+                            </p>
+                            <p class="fragment left">
+                                <i class="icon-thumbs-down"></i> They mostly do testing by hand
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Academia
+
+                            <p class="fragment">
+                                ![](images/automate_all_the_things.jpeg)
+                            </p>
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Verification Quickly
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Definition
+
+                            <br>
+                            **Formal Verification** is the act of
+                            proving or disproving the correctness of intended algorithms
+                            underlying a system<br>with respect to a certain formal specification
+                            or property,<br>using formal methods of mathematics.
+
+                            <br>
+                            <h4 class="left">Advantages</h4>
+
+                            * Powerful method for ﬁnding software errors
+                            * Mathematical proof of absence of errors in implementations relative to speciﬁcations
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Techniques
+
+                            <br>
+
+                            * Model Checking
+                            * Runtime Verification
+                            * Theorem Proving
+                            * Static Analysis
+                            * Simulation
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Testing 101
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Definition
+
+                            <br>
+                            **Software Testing** is the process of executing a program or system
+                            with the intent of finding errors.
+                            However, "Testing shows the presence, not the absence of bugs" (Dijkstra).
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## The Big Picture
+
+                            <br>
+                            <img src="images/test.png" class="no-border" />
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Suite
+
+                            <br>
+                            A **Test Suite** (TS) is a set of **Test Cases**.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Case
+
+                            <br>
+                            A **Test Case** (TC) consists of:
+
+                            * Test Data (TD)
+                            * Expected behavior
+                            * Expected output
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Data
+
+                            <br>
+                            Inputs which have been devised to test the system.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Oracle
+
+                            <br>
+                            An **Oracle** is a mechanism used for determining<br> whether a test has **passed**
+                            or **failed**.
+
+                            <p class="fragment">
+                                <br>
+                                <i class="icon-warning-sign"></i> It should **help you decide** whether a
+                                <br>test has passed, **not tell you** the answer.
+                                <br>
+                                <br>
+                                <small>
+                                    <a href="http://kaner.com/?p=190">http://kaner.com/?p=190</a>
+                                </small>
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## What Is A Test?
+
+                            <br>
+                            <img src="images/test_annotated.png" class="no-border" />
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Testing Process
+
+                            <br>
+                            <img src="images/testing_process.png" class="no-border" />
+
+                            <small>
+                                [http://www.cs.uakron.edu/~collard/cs680S12/notes/SoftwareTesting.html](http://www.cs.uakron.edu/~collard/cs680S12/notes/SoftwareTesting.html)
+                            </small>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Testing Methods
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## White-Box Testing
+
+                            <br>
+                            **White-box testing** is a method that tests the **internal<br>structure** of
+                            a **S**ystem **U**nder **T**est (SUT).
+
+                            <br>
+                            **Implementation**: a realistic, executable piece of software<br>or hardware that
+                            should provide desired behaviors.
+
+                            <br>
+                            <i class="icon-info-sign"></i> It is usually done at the **unit** level.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Black-box Testing
+
+                            <br>
+                            **Black-box testing** is a method that tests the functionalities<br>of a
+                            SUT **without knowing its internal structure**.
+
+                            <br>
+                            **Specification**: a description of the desired behaviors that define
+                            only what the system should do, not how it is done.
+
+                            <br>
+                            <i class="icon-info-sign"></i> Also known as **Functional Testing**.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Grey-box Testing
+
+                            <br>
+                            The combination of **White-box** testing and **Black-box** testing.
+
+                            <br>
+                            You have access to the relevant internal parts of your SUT.
+                        </script>
+                    </section>
+                    <section>
+                        <h2>
+                            How to select subset of test cases from all possible test cases with a high chance of detecting most faults?
+                        </h2>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Selection (Strategies)
+
+                            <p class="left">
+                                <br>
+                                **Black-box Testing**: Combinatorial Testing (Pairwise),
+                                Equivalence Partitioning, Boundary Value Analysis,
+                                <br>Function Coverage
+                                <br>
+                                <br>
+                                **White-box Testing**: Fuzz Testing (Random), Statistical
+                                Testing, Statement Testing, Path Testing, Branch Testing,
+                                Condition Testing, Multiple Condition (MC) Testing, Loop
+                                Testing, Mutation Testing
+                            </p>
+                            <br>
+                            <small>
+                                <a href="http://people.cs.aau.dk/~bnielsen/TOV07/lektioner/whitebox-07.pdf">http://people.cs.aau.dk/~bnielsen/TOV07/lektioner/whitebox-07.pdf</a>
+                            </small>
+
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Automatic Test Generation
+
+                            <p class="fragment">
+                                <br>
+                                **Black-box Testing**&nbsp;&nbsp;&rarr; Model-based Testing
+                                <br>
+                                <br>
+                                **White-box Testing**&nbsp;&rarr; Automated Testing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </p>
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Model-based Testing
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Definition
+
+                            <br>
+                            **Model-based Testing** (MbT) is **application of Model-based design** for designing and
+                            optionally also executing artifacts<br>**to perform software testing**.
+
+                            <br>
+                            **Models** can be used to represent the **desired behavior<br>of an SUT**, or to represent
+                            **testing strategies** and a **test environement**.
+
+                            <br>
+                            <small>
+                                <a href="http://en.wikipedia.org/wiki/Model-based_testing">http://en.wikipedia.org/wiki/Model-based_testing</a>
+                            </small>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Why?
+
+                            <br>
+
+                            * The Oracle Problem
+                            * The need for automation
+                            * Formal methods
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Goals
+
+                            <br>
+
+                            * To bring the benefits of automation to new parts of the test cycle
+                              (test cases creation for instance)
+                            * To provide testers more effective tools
+                            * To reduce cost and cycle time
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## The Big Picture
+
+                            <br>
+                            ![](images/mbt.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Three Stages
+
+                            <br>
+
+                            1. Formally modelling the requirements (specification);
+                            2. Generating test cases from the model;
+                            3. Running these test cases against an actual SUT and evaluating the results.
+
+                            <br>
+                            A **conformance relation** MUST be selected in order to determine under
+                            which conditions an implementation is considered conform to its requirements.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Models
+
+                            <br>
+                            A **Model** is a description of a system that helps you understand and predict its behavior.
+                            <br>
+                            <br>
+                            It does **not need to completely describe it** to be effective.
+
+                            <br>
+                            <br>
+                            <p class="left">
+                                **Behavior/Control oriented**: Finite Automata (FSM, LTS), UML Statecharts, Petri Nets,
+                                Synchronous Languages (Lustre, Scade)
+                                <br>
+                                <br>
+                                **Data oriented** (pre/post): JML, Spec#, OCL, B-Method, Praspel
+                            </p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Observations
+
+                            <br>
+                            Executing a test case on a system yields a set of **observations**.
+
+                            <br>
+                            Every observation represents a part of the<br>**implementation model** of the system.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Implementation Model
+
+                            <br>
+                            The set of all observations made with all possible test cases represents the complete implementation
+                            model of the system.
+
+                            <br>
+                            ![](images/implementation_model.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Testing Hypothesis
+
+                            <br>
+                            For every system there is a corresponding observational equivalent implementation model:
+
+                            <br>
+                            $$ \forall\ iut \in IMPS,\ \exists\ I_{iut} \in MODS $$
+
+                            <br>
+                            <ul class="left force-inline">
+                                <li>$$ iut \in IMPS $$ is a concrete **I**mplementation **U**nder **T**est (IUT)</li>
+                                <li>$$ IMPS $$ is the universe of implementations</li>
+                                <li>$$ I_{iut} $$ is a model of $$ iut $$</li>
+                                <li>$$ MODS $$ is the universe of the models of all IUT</li>
+                            </ul>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Implementation Relations
+
+                            <br>
+                            To define conformance between an implementation under test `imp` and a specification `Spec`,
+                            we use the notion of an **implementation relation**:
+
+                            <br>
+                            $$ imp \subseteq MODS \times SPECS $$
+
+                            <br>
+                            with `SPECS` the set of specifications.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Conformance
+
+                            <br>
+                            An implementation `iut` **conforms to** a specification `Spec` if the existing
+                            model `I`<sub>`iut`</sub> of `iut` is **imp-related to** `Spec`.
+
+                            ![](images/conformance.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Some Relations
+
+                            <br>
+                            <ul class="force-inline">
+                                <li>Refusal Preorder</li>
+                                <li>$$ conf $$</li>
+                                <li>$$ ioco $$</li>
+                            </ul>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Conformance Testing
+
+                            <br>
+                            **Conformance Testing** assesses conformance to an unknown implementation under
+                            test (`iut`) to its specification (`Spec`) by means of test experiments.
+
+                            <br>
+                            Experiments consist of **stimulating** `iut` in certain ways and **observing** its
+                            reactions. This process is called **test execution**.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Execution
+
+                            <br>
+                            $$ exec: TESTS \times MODS \mapsto P(OBS) $$
+
+                            <br>
+                            <ul class="force-inline">
+                                <li>$$ OBS $$ is the domain of all observations</li>
+                                <li>$$ TESTS $$ is the universe of test cases</li>
+                            </ul>
+
+                            <br>
+                            The `verdict` function assigns to each observation
+                            <br>a `pass` or `fail` verdict:
+
+                            <br>
+                            $$ verdict: OBS \mapsto \lbrace Fail, Pass \rbrace $$
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Suite Properties
+
+                            <br>
+                            <p class="left">
+                                **Soundness**
+                                <br>$$ \forall\ iut \in IMPS \dot\ [ (iut\ conforms\ to\ Spec) \Rightarrow (iut\ passes\ TS) ] $$
+                            </p>
+                            <p class="left">
+                                **Exhaustiveness**
+                                <br>$$ \forall\ iut \in IMPS \dot\ [ (iut\ passes\ TS) \Rightarrow (iut\ conforms\ to\ Spec) ] $$
+                            </p>
+                            <p class="left">
+                                **Completeness**
+                                <br>$$ \forall\ iut \in IMPS \dot\ [ (iut\ conforms\ to\ Spec) \Leftrightarrow (iut\ passes\ TS) ] $$
+                            </p>
+
+                            <br>
+                            <p class="force-inline"><i class="icon-info-sign"></i> $$ TS \subseteq TESTS $$ is a test suite.</p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Generation
+
+                            <br>
+
+                            * Based on Finite State Machines
+                            * Based on Labelled Transition Systems
+                            * Symbolic Test Generation Techniques
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Labelled Transition System
+
+                            <br>
+                            A **L**abelled **T**ransition **S**ystem (LTS) describes the transitions from one state
+                            to the other, caused by **action execution**.
+
+                            <br>
+                            LTS are often used to **model reactive systems**.
+
+                            <br>
+                            $$ L = (S, act, \rightarrow) $$
+
+                            <br>
+                            <ul class="left">
+                                <li><code>S</code> is a set of states</li>
+                                <li><code>Act</code> is a set of actions</li>
+                                <li>$$ \rightarrow \subseteq S \times ( Act \cup \lbrace \tau \rbrace) \times S $$</li>
+                                <li><code>&tau;</code> is a **silent**, unobservable action</li>
+                            </ul>
+                        </script>
+                    </section>
+                    <section>
+                        <h2>Example</h2>
+                        <br>
+                        <p class="float-left">
+                            <img src="images/lts.png" />
+                        </p>
+                        <p class="float-right">
+                            <br>
+                            $$ L = (S, Act, \rightarrow) $$
+                            <br>
+                            with
+                            <br>
+                            $$ S = \lbrace s_{1}, s_{2}, s_{3}, s_{4} \rbrace $$
+                            <br>
+                            and
+                            <br>
+                            $$ Act = \lbrace COFFEE, TEA, BUTTON \rbrace $$
+                        </p>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Traces
+
+                            <br>
+                            Traces describe the **observable behavior** of LTS.
+
+                            <br>
+                            $$ traces(s) = \lbrace \sigma | s \stackrel{\sigma}{\Longrightarrow} \rbrace $$
+
+                            <br>
+                            with
+
+                            $$ s \in S $$
+
+                            <br>
+                            <i class="icon-info-sign"></i> The &rArr; relation is used to abstract from &tau; transitions.
+                        </script>
+                    </section>
+                    <section>
+                        <h2>Example</h2>
+                        <p>
+                            <br>
+                            $$
+                            \begin{align}
+                            traces(s_{3}) =
+                            & \lbrace \epsilon, \\
+                            & BUTTON, \\
+                            & BUTTON \cdot TEA \cdot BUTTON, \\
+                            & \dots \rbrace = traces(s_{1}) = traces(s_{4}) \\
+                            \\
+                            traces(s_{2}) =
+                            & \lbrace \epsilon, \\
+                            & TEA, \\
+                            & COFFEE, \\
+                            & TEA \cdot BUTTON \cdot TEA, \\
+                            & \dots \rbrace
+                            \end{align}
+                            $$
+                        </p>
+                        <p>
+                            <br>
+                            <i class="icon-info-sign"></i> &epsilon; is the empty word, part of <code>Act</code>, an Alphabet.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Input/Output LTS</h2>
+
+                        <p class="force-inline">
+                            <br>
+                            By partitioning the actions labels ($$ Act $$) into <strong>inputs</strong> ($$ Act_{I} $$)
+                            <br>and <strong>outputs</strong> ($$ Act_{U} $$), we can obtain an IOLTS:
+                        </p>
+
+                        <p>
+                            <br>
+                            $$ Act = Act_{I} \cup Act_{U} $$
+                        </p>
+
+                        <p class="force-inline">
+                            <br>
+                            The names of <strong>input actions</strong> end on "$$ ? $$", and
+                            <br>those of <strong>output actions</strong> with "$$ ! $$".
+                        </p>
+
+                        <br>
+                        <p>
+                            <i class="icon-info-sign"></i> We introduce a special action &delta; to denote <strong>quiescence</strong>.
+                        </p>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Example
+
+                            <br>
+                            ![](images/iolts.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Conformance
+
+                            <br>
+                            Relating two LTS can be done in a variety of manners:
+                            <br>
+                            <br>
+
+                            * **Equivalence Relations**: Isomorphism, Bisimulation, Trace Equivalence, Testing Equivalence,
+                            Refusal Equivalence;
+                            * **Preorder Relations**: Observation Preorder, Trace Preorder, Testing Preorder, Refusal Preorder;
+                            * **Input-Output Relations**: Input-Output Testing, Input-Output Refusal, **ioconf**, **ioco**.
+
+                            <br>
+                            <i class="icon-warning-sign"></i> Not all relations are suited for testing purposes.
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Trace Preorder
+
+                            <br>
+                            ![](images/trace_preorder.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Case
+
+                            ![](images/test_case_ioco.png)
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Work In Progress
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Conclusion
+                        </script>
+                    </section>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
@@ -71,8 +808,8 @@
                     { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    //{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    //{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    { src: 'js/pageNumbers.js' },
+                    { src: 'reveal.js/plugin/math/math.js', async: true },
                 ]
             });
         </script>
