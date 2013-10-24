@@ -37,13 +37,6 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            <img src="images/michelin-logo.png" class="no-border" />
-
-                            I work at Michelin.
-                        </script>
-                    </section>
-                    <section data-markdown>
-                        <script type="text/template">
                             ## PhD Topic
 
                             <br>
@@ -62,6 +55,7 @@
                         * Verification Quickly
                         * Testing 101
                         * Model-based Testing
+                        * Current Research
                         * Conclusion
                     </script>
                 </section>
@@ -161,7 +155,7 @@
                             <h4 class="left">Advantages</h4>
 
                             * **Powerful method** for finding software errors
-                            * Mathematical **proof** of absence of errors in implementations relative to speciﬁcations
+                            * Mathematical **proof** of absence of errors in implementations relative to specifications
                         </script>
                     </section>
                     <section data-markdown>
@@ -199,7 +193,7 @@
                             ## The Big Picture
 
                             <br>
-                            <img src="images/test.png" class="no-border" />
+                            <img src="images/test.png"  />
                         </script>
                     </section>
                     <section data-markdown>
@@ -232,47 +226,24 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Oracle
+                            ## Tester
 
                             <br>
-                            An **Oracle** is a mechanism used for determining<br> whether a test has **passed**
-                            or **failed**.
-
-                            <p class="fragment">
-                                <br>
-                                <i class="icon-warning-sign"></i> It should **help you decide** whether a
-                                <br>test has passed, **not tell you** the answer.
-                                <br>
-                                <br>
-                                <small>
-                                    <a href="http://kaner.com/?p=190">http://kaner.com/?p=190</a>
-                                </small>
-                            </p>
+                            A **tester** is a mechanism used for determining<br> whether a test has **passed** or **failed**.
+                        </p>
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## What Is A Test?
+                            ## Test Execution
 
                             <br>
-                            <img src="images/test_annotated.png" class="no-border" />
+                            <img src="images/test_annotated.png" />
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Testing Process
-
-                            <br>
-                            <img src="images/testing_process.png" class="no-border" />
-
-                            <small>
-                                [http://www.cs.uakron.edu/~collard/cs680S12/notes/SoftwareTesting.html](http://www.cs.uakron.edu/~collard/cs680S12/notes/SoftwareTesting.html)
-                            </small>
-                        </script>
-                    </section>
-                    <section data-markdown>
-                        <script type="text/template">
-                            ## Testing Methods
+                            ## Different Approaches
                         </script>
                     </section>
                     <section data-markdown>
@@ -318,10 +289,18 @@
                             You have access to the relevant internal parts of your SUT.
                         </script>
                     </section>
-                    <section>
-                        <h2>
-                            How to select subset of test cases from all possible test cases with a high chance of detecting most faults?
-                        </h2>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## But...
+
+                            <br>
+                            Testing cannot guarantee the absence of faults.
+
+                            <i class="icon-arrow-down"></i>
+
+                            How to select subset of Test Cases from all possible<br>Test Cases
+                            with a high chance of detecting most faults?
+                        </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
@@ -352,10 +331,10 @@
 
                             <p class="fragment">
                                 <br>
+                                **White-box Testing**&nbsp;&nbsp;&rarr; Automatic Testing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br>
+                                <br>
                                 **Black-box Testing**&nbsp;&nbsp;&rarr; Model-based Testing
-                                <br>
-                                <br>
-                                **White-box Testing**&nbsp;&rarr; Automated Testing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </p>
                         </script>
                     </section>
@@ -390,7 +369,6 @@
 
                             <br>
 
-                            * The Oracle Problem
                             * The need for automation
                             * Formal methods
                         </script>
@@ -517,7 +495,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Conformance
+                            ## Conformance
 
                             <p class="force-inline">
                                 An implementation $$ iut $$ **conforms to** a specification $$ Spec $$ if the existing
@@ -529,23 +507,11 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Some Relations
-
-                            <br>
-                            <ul class="force-inline">
-                                <li>Refusal Preorder</li>
-                                <li>$$ conf $$</li>
-                                <li>$$ ioco $$</li>
-                            </ul>
-                        </script>
-                    </section>
-                    <section data-markdown>
-                        <script type="text/template">
                             ## Conformance Testing
 
                             <p class="force-inline">
                                 <br>
-                                **Conformance Testing** assesses conformance to an unknown implementation under
+                                **Conformance Testing** assesses conformance to an **unknown** implementation under
                                 test ($$ iut $$) to its specification ($$ Spec $$)<br>by means of **test experiments**.
                                 <br>
                                 <br>
@@ -606,8 +572,8 @@
                             <br>
 
                             * Based on Finite State Machines
+                            * Based on Symbolic Transition Systems
                             * Based on Labelled Transition Systems
-                            * Symbolic Test Generation Techniques
                         </script>
                     </section>
 
@@ -618,9 +584,6 @@
                             <br>
                             A **L**abelled **T**ransition **S**ystem (LTS) describes the transitions from one state
                             to the other, caused by **action execution**.
-
-                            <br>
-                            LTS are often used to **model reactive systems**.
 
                             <br>
                             $$ L = (S, act, \rightarrow) $$
@@ -746,7 +709,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Conformance
+                            ## Conformance Relations
 
                             <br>
                             Relating two LTS can be done in a variety of manners:
@@ -804,6 +767,7 @@
                             ## Test Case
 
                             <div class="left float-left">
+                                <br>
                                 <br>
                                 A **Test Case** is an IOLTS:
                                 <ul>
@@ -863,6 +827,11 @@
                     <section data-markdown>
                         <script type="text/template">
                             ## Current Research
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Challenge
 
                             <br>
                             Based on a software, running in a<br>production environment, would it possible to:
@@ -947,6 +916,7 @@
                             * "Easy" record & replay
                             * Generation of a **degraded model**
                             * Generation of documentation and/or specification
+                            * Generation of tests (code)
                         </script>
                     </section>
                     <section data-markdown>
@@ -954,7 +924,7 @@
                             ## **Auto**matic **Funk**tional Testing Tool
 
                             <br>
-                            A **proxy** records incoming/outgoing data (traces).
+                            A **monitor** records incoming/outgoing data (traces).
 
                             <br>
                             An **Expert System** is used to generate models.
@@ -990,7 +960,7 @@
 
                             <br>
 
-                            * Formalizing the different generated models (WIP)
+                            * Formalizing the **different generated models** (WIP)
                             * Proving the correctness of each model (WIP)
                             * Test Data generation (WIP)
                             * Adding more rules to the Expert System
