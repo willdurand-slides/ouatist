@@ -155,7 +155,7 @@
                             <h4 class="left">Advantages</h4>
 
                             * **Powerful method** for finding software errors
-                            * Mathematical **proof** of absence of errors in implementations relative to specifications
+                            * Mathematical **proof** of absence of errors in models relative to specifications
                         </script>
                     </section>
                     <section data-markdown>
@@ -186,6 +186,11 @@
                             **Software Testing** is the process of executing a program or system
                             with the intent of finding errors.
                             However, "Testing shows the presence, not the absence of bugs" (Dijkstra).
+
+                            <br>
+                            <p>
+                                <i class="icon-info-sign"></i> It is the **validation** part!
+                            </p>
                         </script>
                     </section>
                     <section data-markdown>
@@ -472,7 +477,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Implementation Relations
+                            ## Implementation Relation
 
                             <br>
                             <p class="force-inline">
@@ -516,28 +521,31 @@
                             </p>
                         </script>
                     </section>
-                    <section data-markdown>
-                        <script type="text/template">
-                            ## Test Execution
+                    <section>
+                        <h2>Test Execution</h2>
 
+                        <p class="force-inline">
                             <br>
-                            $$ exec: TESTS \times MODS \mapsto P(OBS) $$
+                            Successful execution of a test case $$ TC $$:
+                        </p>
 
-                            <br>
-                            <ul class="force-inline">
-                                <li>$$ OBS $$ is the domain of all observations</li>
-                                <li>$$ TESTS $$ is the universe of test cases</li>
-                            </ul>
+                        <p>
+                            $$ I_{iut}\ {\bf passes}\ TC $$
+                        </p>
 
+                        <p class="force-inline">
                             <br>
-                            <p class="force-inline">
-                                The $$ verdict $$ function assigns to each observation
-                                <br>a $$ pass $$ or $$ fail $$ verdict:
-                            </p>
+                            It is easily extended to a test suite $ TS $:
+                        </p>
 
+                        <p>
+                            $$ I_{iut}\ {\bf passes}\ TS \Leftrightarrow \forall\ TC \in TS : I_{iut}\ {\bf passes}\ TC $$
+                        </p>
+
+                        <p class="force-inline">
                             <br>
-                            $$ verdict: OBS \mapsto \lbrace Fail, Pass \rbrace $$
-                        </script>
+                            <i class="icon-info-sign"></i> $$ I_{iut}\ {\bf fails}\ TC \Leftrightarrow I_{iut}\ \cancel{\bf passes} TC $$
+                        </p>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
@@ -559,6 +567,18 @@
 
                             <br>
                             <p class="force-inline"><i class="icon-info-sign"></i> $$ TS \subseteq TESTS $$ is a test suite.</p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Test Architecture
+
+                            <p class="force-inline">
+                                <br>
+                                A **test architecture** is an abstract description of the **environment** in which an
+                                implementation under test ($$ iut $$) is embedded, and where it communicates with a
+                                **tester**.
+                            </p>
                         </script>
                     </section>
                     <section data-markdown>
@@ -640,23 +660,19 @@
                             $$
                             \begin{align}
                             traces(s_{3}) =
-                            & \lbrace \epsilon, \\
+                            & \lbrace \\
                             & BUTTON, \\
                             & BUTTON \cdot TEA \cdot BUTTON, \\
                             & \dots \rbrace = traces(s_{1}) = traces(s_{4}) \\
                             \\
                             traces(s_{2}) =
-                            & \lbrace \epsilon, \\
+                            & \lbrace \\
                             & TEA, \\
                             & COFFEE, \\
                             & TEA \cdot BUTTON \cdot TEA, \\
                             & \dots \rbrace
                             \end{align}
                             $$
-                        </p>
-                        <p class="force-inline">
-                            <br>
-                            <i class="icon-info-sign"></i> $$ \epsilon $$ is the empty word, part of the alphabet $$ Act $$.
                         </p>
                     </section>
                     <section>
@@ -697,7 +713,7 @@
                             <br>
                             $$
                             \begin{align}
-                            Act_{I} = & \lbrace COIN?, COFFEE?, TEA? \rbrace \\
+                            Act_{I} = & \lbrace BUTTON?, COFFEE?, TEA? \rbrace \\
                             Act_{U} = & \lbrace COFFEE!, TEA! \rbrace
                             \end{align}
                             $$
@@ -705,7 +721,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Conformance Relations
+                            ## Conformance Relation
 
                             <br>
                             Relating two LTS can be done in a variety of manners:
@@ -781,10 +797,10 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Formal Test Execution
+                            ## Parallel Execution
 
                             <br>
-                            **Formally executing** a test case means putting it in parallel
+                            **Executing** a test case by putting it in parallel
                             with the implementation model, leading to a **verdict**.
                         </script>
                     </section>
@@ -844,8 +860,8 @@
 
                         <br>
                         <p>
-                            Michelin relies on the <strong>C</strong>omputer <strong>I</strong>ntegrated <strong>M</strong>anufacturing
-                            <br>(CIM) approach to control the entire production:
+                            Michelin relies on a method close to the <strong>C</strong>omputer <strong>I</strong>ntegrated <strong>M</strong>anufacturing
+                            (CIM) approach to control its production:
                         </p>
 
                         <div class="float-left" style="width: 65%">
@@ -1026,6 +1042,16 @@
                     { src: 'js/pageNumbers.js' },
                     { src: 'reveal.js/plugin/math/math.js', async: true },
                 ]
+            });
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+                MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+                    cancel: ["Extension","cancel"],
+                    bcancel: ["Extension","cancel"],
+                    xcancel: ["Extension","cancel"],
+                    cancelto: ["Extension","cancel"]
+                });
             });
         </script>
     </body>
